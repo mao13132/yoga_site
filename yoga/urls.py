@@ -17,6 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.conf.urls.static import static  # Для медиа файлов
+from django.conf import settings    # Для медиа файлов
+
+from start_page.views import robots_txt, index
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("robots.txt", robots_txt),
+    path("", index),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
