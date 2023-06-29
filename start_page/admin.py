@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from django.contrib import messages
 
-from .models import Settings, ButtonsHead, Page2Title
+from .models import Settings, ButtonsHead, Page2Title, Page2Slider, Advantages
 
 
 # Register your models here.
@@ -33,7 +33,15 @@ class ButtonsHeadAdmin(admin.ModelAdmin):
 class Page2TitleAdmin(admin.ModelAdmin):
     list_display = ('h1', 'disc1', 'disc1')
 
+class Page2SliderAdmin(admin.ModelAdmin):
+    list_display = ('title', 'desc')
+
+class AdvantagesAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+
 
 admin.site.register(Settings, SettingsAdmin)
 admin.site.register(ButtonsHead, ButtonsHeadAdmin)
 admin.site.register(Page2Title, Page2TitleAdmin)
+admin.site.register(Page2Slider, Page2SliderAdmin)
+admin.site.register(Advantages, AdvantagesAdmin)
