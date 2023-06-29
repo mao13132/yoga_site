@@ -614,7 +614,7 @@
                     <div class="t396__elem tn-elem tn-elem__5645089951679020878899" data-elem-id="1679020878899" data-elem-type="image" data-field-top-value="-715" data-field-left-value="380" data-field-width-value="200" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value data-field-widthunits-value="px" data-field-filewidth-value="1353" data-field-fileheight-value="2933"
                         data-field-top-res-320-value="-276" data-field-left-res-320-value="-44" data-field-width-res-320-value="408" data-field-top-res-640-value="-671">
-                        <div class="tn-atom"><img class="tn-atom__img t-img" data-original="{% static 'images/iPhone_114_Pro_-_1-R.png' %}" imgfield="tn_img_1679020878899"></div>
+                        <div class="tn-atom"><img class="tn-atom__img t-img" data-original="{% if settings == None %}{% static 'images/iPhone_114_Pro_-_1-R.png' %}{% else %}{% if settings.image_mob %}{{ settings.image_mob.url }}{% else %}{% static 'images/iPhone_114_Pro_-_1-R.png' %}{% endif %}{% endif %}" imgfield="tn_img_1679020878899"></div>
                     </div>
                     <div class="t396__elem tn-elem tn-elem__5645089951679020878906" data-elem-id="1679020878906" data-elem-type="shape" data-field-top-value="-161px" data-field-left-value="-148px" data-field-height-value="1122" data-field-width-value="100"
                         data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value="px" data-field-widthunits-value="px" data-field-top-res-320-value="-326"
@@ -626,7 +626,7 @@
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value data-field-widthunits-value="px" data-field-filewidth-value="2339" data-field-fileheight-value="1585"
                         data-field-lazyoff-value="y" data-field-top-res-320-value="472" data-field-left-res-320-value="-1210" data-field-width-res-320-value="605" data-field-top-res-480-value="306" data-field-left-res-480-value="-178" data-field-width-res-480-value="896"
                         data-field-top-res-640-value="76" data-field-left-res-640-value="-237" data-field-width-res-640-value="1114" data-field-top-res-960-value="0" data-field-left-res-960-value="-263" data-field-width-res-960-value="1486">
-                        <div class="tn-atom"><img class="tn-atom__img" src="{% static 'images/Frame_55_1_1_1.png' %}" imgfield="tn_img_1679020878910"></div>
+                        <div class="tn-atom"><img class="tn-atom__img" src="{% if settings == None %}{% static 'images/Frame_55_1_1_1.png' %}{% else %}{% if settings.image %}{{ settings.image.url }}{%else%}{% static 'images/Frame_55_1_1_1.png' %}{% endif %}{% endif %}" imgfield="tn_img_1679020878910"></div>
                     </div>
                     <div class="t396__elem tn-elem tn-elem__5645089951679020878914" data-elem-id="1679020878914" data-elem-type="shape" data-field-top-value="-316" data-field-left-value="104" data-field-height-value="10" data-field-width-value="100" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value="px" data-field-widthunits-value="px" data-field-top-res-320-value="581" data-field-left-res-320-value="-144"
@@ -638,18 +638,22 @@
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value data-field-widthunits-value="px" data-animate-style="fadeinup" data-animate-duration="1"
                         data-animate-distance="100" data-animate-mobile="y" data-field-top-res-320-value="433" data-field-left-res-320-value="0" data-field-width-res-320-value="321" data-field-top-res-480-value="310" data-field-left-res-480-value="10" data-field-width-res-480-value="421"
                         data-field-top-res-640-value="282" data-field-left-res-640-value="36" data-field-width-res-640-value="510" data-field-top-res-960-value="314" data-field-left-res-960-value="10" data-field-width-res-960-value="476">
-                        <div class="tn-atom" field="tn_text_1679020878917">Йога и медитация, как их преподают в Индии. Глубокие знания простым и современным языком</div>
+                        <div class="tn-atom" field="tn_text_1679020878917">{% if settings == None %}Йога и медитация,
+                            как их преподают в Индии. Глубокие знания простым и современным языком
+                        {% else %}{{ settings.description }}{% endif %}</div>
                     </div>
                     <div class="t396__elem tn-elem tn-elem__5645089951679020878920 t-animate" data-elem-id="1679020878920" data-elem-type="button" data-field-top-value="303" data-field-left-value="733" data-field-height-value="51" data-field-width-value="171"
                         data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value data-field-widthunits-value data-animate-style="fadeinup"
                         data-animate-duration="1" data-animate-distance="100" data-animate-mobile="y" data-field-top-res-320-value="516" data-field-left-res-320-value="32" data-field-height-res-320-value="58" data-field-width-res-320-value="256" data-field-top-res-480-value="443"
                         data-field-left-res-480-value="10" data-field-width-res-480-value="460" data-field-top-res-640-value="355" data-field-left-res-640-value="32" data-field-height-res-640-value="56" data-field-width-res-640-value="252" data-field-top-res-960-value="331"
-                        data-field-left-res-960-value="519"><a class="tn-atom" href="#buy">Записаться</a></div>
+                        data-field-left-res-960-value="519"><a class="tn-atom" href="#buy">{% if settings == None %}
+                        Записаться{% else %}{{ settings.button1 }}{% endif %}</a></div>
                     <div class="t396__elem tn-elem tn-elem__5645089951679020878924 t-animate" data-elem-id="1679020878924" data-elem-type="button" data-field-top-value="303" data-field-left-value="917"
                         data-field-height-value="51" data-field-width-value="251" data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value
                         data-field-widthunits-value data-animate-style="fadeinup" data-animate-duration="1" data-animate-delay="0.2" data-animate-distance="100" data-animate-mobile="y" data-field-top-res-320-value="587" data-field-left-res-320-value="32"
                         data-field-height-res-320-value="58" data-field-width-res-320-value="256" data-field-top-res-480-value="504" data-field-left-res-480-value="10" data-field-width-res-480-value="460" data-field-top-res-640-value="355" data-field-left-res-640-value="300"
-                        data-field-height-res-640-value="56" data-field-width-res-640-value="252" data-field-top-res-960-value="331" data-field-left-res-960-value="700"><a class="tn-atom" href="#freeclass">Попробовать бесплатно</a></div>
+                        data-field-height-res-640-value="56" data-field-width-res-640-value="252" data-field-top-res-960-value="331" data-field-left-res-960-value="700"><a class="tn-atom" href="#freeclass">{% if settings == None %}Попробовать бесплатно
+                    {% else %}{{ settings.button2 }}{% endif %}</a></div>
                     <div class="t396__elem tn-elem tn-elem__5645089951679020878927" data-elem-id="1679020878927" data-elem-type="image" data-field-top-value="390" data-field-left-value="-180"
                         data-field-width-value="1432" data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value data-field-widthunits-value="px"
                         data-field-filewidth-value="1680" data-field-fileheight-value="289" data-field-top-res-320-value="32" data-field-left-res-320-value="-33" data-field-width-res-320-value="660" data-field-top-res-640-value="470" data-field-left-res-640-value="-350"
@@ -660,13 +664,15 @@
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value data-field-widthunits-value="px" data-animate-style="fadeinleft" data-animate-duration="1"
                         data-animate-distance="100" data-animate-mobile="y" data-field-top-res-320-value="144" data-field-left-res-320-value="6" data-field-width-res-320-value="299" data-field-top-res-480-value="175" data-field-left-res-480-value="11" data-field-width-res-480-value="460"
                         data-field-top-res-640-value="205" data-field-width-res-640-value="621">
-                        <h1 class="tn-atom" field="tn_text_1679020878933">йоги и медитации</h1>
+                        <h1 class="tn-atom" field="tn_text_1679020878933">{% if settings == None %}йоги и медитации
+                        {% else %}{{ settings.h1_2 }}{% endif %}</h1>
                     </div>
                     <div class="t396__elem tn-elem tn-elem__5645089951679020878935 t-animate" data-elem-id="1679020878935" data-elem-type="text" data-field-top-value="100" data-field-left-value="34" data-field-width-value="441" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value data-field-widthunits-value="px" data-animate-style="fadeinright" data-animate-duration="1"
                         data-animate-distance="100" data-animate-mobile="y" data-field-top-res-320-value="104" data-field-left-res-320-value="10" data-field-width-res-320-value="301" data-field-top-res-480-value="111" data-field-left-res-480-value="11" data-field-width-res-480-value="461"
                         data-field-top-res-640-value="141" data-field-left-res-640-value="34" data-field-width-res-640-value="610">
-                        <h1 class="tn-atom" field="tn_text_1679020878935">онлайн клуб</h1>
+                        <h1 class="tn-atom" field="tn_text_1679020878935">{% if settings == None %}онлайн клуб{% else %}
+                        {{ settings.h1_1 }}{% endif %}</h1>
                     </div>
                 </div>
             </div>

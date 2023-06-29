@@ -2,7 +2,9 @@ from django.contrib import admin
 
 from django.contrib import messages
 
-from .models import Settings
+from .models import Settings, ButtonsHead, Page2Title
+
+
 # Register your models here.
 
 class SettingsAdmin(admin.ModelAdmin):
@@ -24,5 +26,14 @@ class SettingsAdmin(admin.ModelAdmin):
     #         super(SettingsAdmin, self).save_model(request, obj, form, change)
 
 
-admin.site.register(Settings, SettingsAdmin)
+class ButtonsHeadAdmin(admin.ModelAdmin):
+    list_display = ('button1', 'button2', 'button3', 'button4', 'button5', 'button6')
 
+
+class Page2TitleAdmin(admin.ModelAdmin):
+    list_display = ('h1', 'disc1', 'disc1')
+
+
+admin.site.register(Settings, SettingsAdmin)
+admin.site.register(ButtonsHead, ButtonsHeadAdmin)
+admin.site.register(Page2Title, Page2TitleAdmin)
