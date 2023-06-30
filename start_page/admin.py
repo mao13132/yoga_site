@@ -80,18 +80,23 @@ class Page5TitleAdmin(admin.ModelAdmin):
 class Page5CardsAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2', 'desc')
 
+
 class Page6TitleAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2')
+
 
 class Page6SessionAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2', 'title3', 'title4')
     list_display_links = ('title1', 'title2', 'title3', 'title4')
 
+
 class TeachersAdmin(admin.ModelAdmin):
     list_display = ('name', 'desc')
 
+
 class AbonimentsTitleAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2')
+
 
 class ReviewsAdmin(admin.ModelAdmin):
     list_display = ('image',)
@@ -99,6 +104,21 @@ class ReviewsAdmin(admin.ModelAdmin):
 
 class AbonimentsCardsAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2', 'price')
+
+
+class LeadPageAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2', 'button')
+
+
+class QuestsTitleAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2')
+
+
+class QuestsAdmin(admin.ModelAdmin):
+    list_display = ('quest',)
+
+class ContactsAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'telegram')
 
 
 admin.site = MyAdminSite()
@@ -120,3 +140,7 @@ admin.site.register(Teachers, TeachersAdmin)
 admin.site.register(AbonimentsTitle, AbonimentsTitleAdmin)
 admin.site.register(AbonimentsCards, AbonimentsCardsAdmin)
 admin.site.register(Reviews, ReviewsAdmin)
+admin.site.register(LeadPage, LeadPageAdmin)
+admin.site.register(QuestsTitle, QuestsTitleAdmin)
+admin.site.register(Quests, QuestsAdmin)
+admin.site.register(Contacts, ContactsAdmin)

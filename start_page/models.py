@@ -4,6 +4,84 @@ from django.db import models
 from django.contrib import messages
 
 
+class Contacts(models.Model):
+    title1 = models.TextField(null=True, blank=True, verbose_name='Контакты')
+    telegram = models.CharField(max_length=150, null=True, blank=True, verbose_name='Логин телеграм без @')
+
+    class Meta:
+        verbose_name = 'контакты'
+        verbose_name_plural = 'Контакты'
+
+    def save(self, *args, **kwargs):
+        count = Contacts.objects.count()
+        if count >= 1:
+            if not self.pk and Contacts.objects.exists():
+                return False
+            else:
+                Contacts.objects.filter(pk=self.pk).update(title1=self.title1, telegram=self.telegram)
+        else:
+            return super(Contacts, self).save(*args, **kwargs)
+
+class Quests(models.Model):
+    quest = models.CharField(null=False, blank=False, max_length=120, verbose_name='Вопрос')
+    answer = models.TextField(null=False, blank=False, verbose_name='Ответ')
+
+    class Meta:
+        verbose_name = 'вопрос'
+        verbose_name_plural = 'Вопросы. Редактировать'
+
+    def save(self, *args, **kwargs):
+        count = Quests.objects.count()
+        if count >= 9:
+            if not self.pk and Quests.objects.exists():
+                return False
+            else:
+                Quests.objects.filter(pk=self.pk).update(quest=self.quest, answer=self.answer)
+        else:
+            return super(Quests, self).save(*args, **kwargs)
+
+
+class QuestsTitle(models.Model):
+    title1 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Главный заголовок')
+    title2 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Второй заголовок')
+
+    class Meta:
+        verbose_name = 'заголовок'
+        verbose_name_plural = 'Вопросы. Заголовки'
+
+    def save(self, *args, **kwargs):
+        count = QuestsTitle.objects.count()
+        if count >= 1:
+            if not self.pk and QuestsTitle.objects.exists():
+                return False
+            else:
+                QuestsTitle.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2)
+        else:
+            return super(QuestsTitle, self).save(*args, **kwargs)
+
+class LeadPage(models.Model):
+    title1 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Главный заголовок')
+    title2 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Второй заголовок')
+    button = models.CharField(null=False, blank=False, max_length=120, verbose_name='Надпись кнопки')
+    image = models.ImageField(null=False, blank=False, upload_to='lead', verbose_name='Изображение')
+
+    class Meta:
+        verbose_name = 'параметр'
+        verbose_name_plural = 'Экран заявка'
+
+    def save(self, *args, **kwargs):
+        count = LeadPage.objects.count()
+        if count >= 1:
+            if not self.pk and LeadPage.objects.exists():
+                return False
+            else:
+                LeadPage.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2,
+                                                           button=self.button, image=self.image)
+        else:
+            return super(LeadPage, self).save(*args, **kwargs)
+
+
+
 class Reviews(models.Model):
     image = models.ImageField(null=False, blank=False, upload_to='reviews', verbose_name='Отзыв')
 
