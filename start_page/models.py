@@ -4,6 +4,24 @@ from django.db import models
 from django.contrib import messages
 
 
+class Reviews(models.Model):
+    image = models.ImageField(null=False, blank=False, upload_to='reviews', verbose_name='Отзыв')
+
+    class Meta:
+        verbose_name = 'отзыв'
+        verbose_name_plural = 'Отзывы'
+
+    def save(self, *args, **kwargs):
+        count = Reviews.objects.count()
+        if count >= 8:
+            if not self.pk and Reviews.objects.exists():
+                return False
+            else:
+                Reviews.objects.filter(pk=self.pk).update(image=self.image)
+        else:
+            return super(Reviews, self).save(*args, **kwargs)
+
+
 class AbonimentsCards(models.Model):
     title1 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Главный заголовок')
     title2 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Второй заголовок')

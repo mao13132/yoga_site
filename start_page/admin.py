@@ -93,6 +93,10 @@ class TeachersAdmin(admin.ModelAdmin):
 class AbonimentsTitleAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2')
 
+class ReviewsAdmin(admin.ModelAdmin):
+    list_display = ('image',)
+
+
 class AbonimentsCardsAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2', 'price')
 
@@ -115,3 +119,4 @@ admin.site.register(Page6Session, Page6SessionAdmin)
 admin.site.register(Teachers, TeachersAdmin)
 admin.site.register(AbonimentsTitle, AbonimentsTitleAdmin)
 admin.site.register(AbonimentsCards, AbonimentsCardsAdmin)
+admin.site.register(Reviews, ReviewsAdmin)

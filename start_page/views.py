@@ -14,6 +14,7 @@ from start_page.func.page5_cards import func_page5_cards
 from start_page.func.page6_session import page6_sessions_func
 from start_page.func.page7_teacher import page7_teacher_func
 from start_page.func.page8_cards import page8_cars_func
+from start_page.func.page9_reviews import page9_reviews_func
 
 
 
@@ -68,10 +69,14 @@ def index(request):
     aboniment_list = AbonimentsCards.objects.all()
     aboniment_list = page8_cars_func(aboniment_list)
 
+    reviews = Reviews.objects.all()
+    reviews = page9_reviews_func(reviews)
+
     context = {'settings': settings, 'buttons': buttons, 'page2': page2, 'slider': page2slider,
                'advantages': advantage_list, 'page4': page4, "page4_cars": page4_cars,
                'page5': page5, "page5_cards": page5_cards, "page6": page6, 'sessions': sessions,
-               'teachers': teachers, 'aboniment': aboniment, 'aboniment_list': aboniment_list}
+               'teachers': teachers, 'aboniment': aboniment, 'aboniment_list': aboniment_list,
+               'reviews': reviews}
 
     response = render(request, 'start_page/index.html', context=context)
 

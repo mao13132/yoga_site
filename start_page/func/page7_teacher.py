@@ -1,6 +1,9 @@
 def page7_teacher_func(teachers_list):
     good_list = {}
 
+    if teachers_list is None:
+        return teachers_list
+
     for count in range(3):
         try:
             good_list[f'name_{count + 1}'] = teachers_list[count].name

@@ -3,6 +3,9 @@ from django.utils.safestring import mark_safe
 def page6_sessions_func(sessions_lisst):
     good_list = {}
 
+    if sessions_lisst is None:
+        return sessions_lisst
+
     for count in range(3):
         try:
             good_list[f'title1_{count + 1}'] = sessions_lisst[count].title1

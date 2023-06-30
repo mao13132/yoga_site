@@ -4,6 +4,9 @@ from django.utils.safestring import mark_safe
 def page8_cars_func(aboniment_list):
     good_list = {}
 
+    if aboniment_list is None:
+        return aboniment_list
+
     for count in range(3):
         try:
             good_list[f'title1_{count + 1}'] = aboniment_list[count].title1
