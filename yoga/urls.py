@@ -31,3 +31,8 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+admin.site.site_header = "Админка"
+
+admin.site.site_title = "Админка сайта йоги"
+
+admin.site.index_title = "Добро пожаловать в админку"

@@ -3,6 +3,68 @@ from django.db import models
 
 from django.contrib import messages
 
+
+class Page5Title(models.Model):
+    title1 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Главный заголовок')
+    desc = models.TextField(null=True, blank=True, verbose_name='Описание')
+    title2 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Нижний заголовок')
+    image = models.ImageField(null=True, blank=True, upload_to='page5', verbose_name='Изображение')
+
+    class Meta:
+        verbose_name = '5 экран'
+        verbose_name_plural = '5 экран'
+
+    def save(self, *args, **kwargs):
+        count = Page5Title.objects.count()
+        if count >= 1:
+            if not self.pk and Page5Title.objects.exists():
+                return False
+            else:
+                Page5Title.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2, desc=self.desc,
+                                                             image=self.image)
+        else:
+            return super(Page5Title, self).save(*args, **kwargs)
+
+
+class Page4Cards(models.Model):
+    title = models.CharField(max_length=250, verbose_name='Заголовок карточки')
+    desc = models.TextField(null=True, blank=True, verbose_name='Описание')
+
+    class Meta:
+        verbose_name = '4 экран карточка'
+        verbose_name_plural = '4 экран карточки'
+
+    def save(self, *args, **kwargs):
+        count = Page4Cards.objects.count()
+        if count >= 6:
+            if not self.pk and Page4Cards.objects.exists():
+                return False
+            else:
+                Page4Cards.objects.filter(pk=self.pk).update(title=self.title, desc=self.desc)
+        else:
+            return super(Page4Cards, self).save(*args, **kwargs)
+
+
+class Page4Title(models.Model):
+    title1 = models.CharField(max_length=50, verbose_name='Заголовок 1')
+    title2 = models.CharField(max_length=50, verbose_name='Заголовок 2')
+    desc = models.TextField(null=True, blank=True, verbose_name='Описание')
+
+    class Meta:
+        verbose_name = '4 экран'
+        verbose_name_plural = '4 экран'
+
+    def save(self, *args, **kwargs):
+        count = Page4Title.objects.count()
+        if count >= 1:
+            if not self.pk and Page4Title.objects.exists():
+                return False
+            else:
+                Page4Title.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2, desc=self.desc)
+        else:
+            return super(Page4Title, self).save(*args, **kwargs)
+
+
 class Advantages(models.Model):
     title = models.CharField(max_length=250, verbose_name='Описание преимущества')
 
@@ -13,17 +75,12 @@ class Advantages(models.Model):
     def save(self, *args, **kwargs):
         count = Advantages.objects.count()
         if count >= 6:
-            if not self.pk and Page2Title.objects.exists():
+            if not self.pk and Advantages.objects.exists():
                 return False
             else:
                 Advantages.objects.filter(pk=self.pk).update(title=self.title)
         else:
             return super(Advantages, self).save(*args, **kwargs)
-
-    def refresh(self, *args, **kwargs):
-        # Do something
-        super(Advantages, self).update(*args, **kwargs)
-        # Do something else
 
 
 class Page2Slider(models.Model):
@@ -47,7 +104,6 @@ class Page2Slider(models.Model):
                                                                                      desc=self.desc)
         else:
             return super(Page2Slider, self).save(*args, **kwargs)
-
 
 
 # Create your models here.

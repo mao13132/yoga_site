@@ -1560,7 +1560,8 @@
                  data-field-left-res-640-value="34" data-field-width-res-640-value="503"
                  data-field-top-res-960-value="50"
                  data-field-left-res-960-value="12">
-                <h2 class="tn-atom" field="tn_text_1678737045289">В клубе есть все для вашего</h2>
+                <h2 class="tn-atom" field="tn_text_1678737045289">{% if page4 == None %}В клубе есть все для вашего
+                    {% else %}{{ page4.title1 }}{% endif %}</h2>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045292" data-elem-id="1678737045292"
                  data-elem-type="text" data-field-top-value="106" data-field-left-value="430"
@@ -1571,7 +1572,8 @@
                  data-field-left-res-480-value="285" data-field-width-res-480-value="219"
                  data-field-top-res-640-value="100" data-field-left-res-640-value="370"
                  data-field-top-res-960-value="110" data-field-left-res-960-value="362">
-                <div class="tn-atom" field="tn_text_1678737045292"> развития</div>
+                <div class="tn-atom" field="tn_text_1678737045292">{% if page4 == None %} развития
+                    {% else %}{{ page4.title2 }}{% endif %}</div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045294 t-animate" data-elem-id="1678737045294"
                  data-elem-type="text" data-field-top-value="190" data-field-left-value="80"
@@ -1586,9 +1588,11 @@
                  data-field-top-res-640-value="183" data-field-left-res-640-value="34"
                  data-field-width-res-640-value="495" data-field-top-res-960-value="192"
                  data-field-left-res-960-value="12">
-                <div class="tn-atom" field="tn_text_1678737045294">Весь концентрат знаний и&nbsp;опыта мы&nbsp;внедряем
+                <div class="tn-atom" field="tn_text_1678737045294">{% if page4 == None %}Весь концентрат знаний и
+                    &nbsp;опыта мы&nbsp;внедряем
                     в&nbsp;различные челленджи, интенсивы, курсы. Все&nbsp;самое лучшее, простым и&nbsp;современным
                     языком
+                    {% else %}{{ page4.desc }}{% endif %}
                 </div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045348 t-animate" data-elem-id="1678737045348"
@@ -1617,7 +1621,9 @@
                  data-field-width-res-640-value="57" data-field-top-res-960-value="360"
                  data-field-left-res-960-value="101"
                  data-field-width-res-960-value="61">
-                <div class="tn-atom" field="tn_text_1678737045311">Йога</div>
+                <div class="tn-atom" field="tn_text_1678737045311">{% if page4_cars == None %}
+                    Йога{% else %}{% if page4_cars.title1 %}{{ page4_cars.title1 }}
+                    {% else %}Йога{% endif %}{% endif %}</div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045313 t-animate" data-elem-id="1678737045313"
                  data-elem-type="text" data-field-top-value="405" data-field-left-value="105"
@@ -1632,8 +1638,11 @@
                  data-field-left-res-640-value="58" data-field-width-res-640-value="217"
                  data-field-top-res-960-value="408" data-field-left-res-960-value="41"
                  data-field-width-res-960-value="234">
-                <div class="tn-atom" field="tn_text_1678737045313">Комплексы классической йоги, которые наполнят твою
-                    внутреннюю «батарейку»
+                <div class="tn-atom" field="tn_text_1678737045313">{% if page4_cars == None %}
+                    Комплексы классической йоги, которые наполнят твою
+                    внутреннюю «батарейку»{% else %}{% if page4_cars.desc1 %}{{ page4_cars.desc1 }}
+                    {% else %}Комплексы классической йоги, которые наполнят твою
+                    внутреннюю «батарейку»{% endif %}{% endif %}
                 </div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678741098793" data-elem-id="1678741098793"
@@ -1677,7 +1686,9 @@
                  data-field-width-res-640-value="131" data-field-top-res-960-value="360"
                  data-field-left-res-960-value="419"
                  data-field-width-res-960-value="141">
-                <div class="tn-atom" field="tn_text_1678737045333">медитация</div>
+                <div class="tn-atom" field="tn_text_1678737045333">{% if page4_cars == None %}
+                    медитация{% else %}{% if page4_cars.title2 %}{{ page4_cars.title2 }}
+                    {% else %}медитация{% endif %}{% endif %}</div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045328 t-animate" data-elem-id="1678737045328"
                  data-elem-type="text" data-field-top-value="405" data-field-left-value="461"
@@ -1692,8 +1703,11 @@
                  data-field-left-res-640-value="352" data-field-width-res-640-value="205"
                  data-field-top-res-960-value="408" data-field-left-res-960-value="358"
                  data-field-width-res-960-value="221">
-                <div class="tn-atom" field="tn_text_1678737045328">Меняем состояние, меняем реальность с&nbsp;помощью
-                    медитации
+                <div class="tn-atom" field="tn_text_1678737045328">{% if page4_cars == None %}
+                    Меняем состояние, меняем реальность с&nbsp;помощью
+                    медитации{% else %}{% if page4_cars.desc2 %}{{ page4_cars.desc2 }}
+                    {% else %}Меняем состояние, меняем реальность с&nbsp;помощью
+                    медитации{% endif %}{% endif %}
                 </div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045278" data-elem-id="1678737045278"
@@ -1737,7 +1751,9 @@
                  data-field-width-res-640-value="146" data-field-top-res-960-value="348"
                  data-field-left-res-960-value="738"
                  data-field-width-res-960-value="157">
-                <div class="tn-atom" field="tn_text_1678737045335">библиотека<br>медитаций</div>
+                <div class="tn-atom" field="tn_text_1678737045335">{% if page4_cars == None %}
+                    библиотека<br>медитаций{% else %}{% if page4_cars.title3 %}{{ page4_cars.title3 }}
+                    {% else %}библиотека<br>медитаций{% endif %}{% endif %}</div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045330 t-animate" data-elem-id="1678737045330"
                  data-elem-type="text" data-field-top-value="409" data-field-left-value="816"
@@ -1752,8 +1768,11 @@
                  data-field-left-res-640-value="58" data-field-width-res-640-value="209"
                  data-field-top-res-960-value="410" data-field-left-res-960-value="677"
                  data-field-width-res-960-value="225">
-                <div class="tn-atom" field="tn_text_1678737045330">Классические техники медитаций от&nbsp;лучших школ
-                    йоги Индии
+                <div class="tn-atom" field="tn_text_1678737045330">{% if page4_cars == None %}
+                    Классические техники медитаций от&nbsp;лучших школ
+                    йоги Индии{% else %}{% if page4_cars.desc3 %}{{ page4_cars.desc3 }}
+                    {% else %}Классические техники медитаций от&nbsp;лучших школ
+                    йоги Индии{% endif %}{% endif %}
                 </div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045281" data-elem-id="1678737045281"
@@ -1799,7 +1818,9 @@
                  data-field-left-res-640-value="405" data-field-width-res-640-value="176"
                  data-field-top-res-960-value="575"
                  data-field-left-res-960-value="94" data-field-width-res-960-value="190">
-                <div class="tn-atom" field="tn_text_1678737045337">Курсы, челленджи, интенсивы</div>
+                <div class="tn-atom" field="tn_text_1678737045337">{% if page4_cars == None %}
+                    Курсы, челленджи, интенсивы{% else %}{% if page4_cars.title4 %}{{ page4_cars.title4 }}
+                    {% else %}Курсы, челленджи, интенсивы{% endif %}{% endif %}</div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045322 t-animate" data-elem-id="1678737045322"
                  data-elem-type="text" data-field-top-value="646" data-field-left-value="105"
@@ -1813,9 +1834,13 @@
                  data-field-top-res-640-value="624" data-field-left-res-640-value="353"
                  data-field-width-res-640-value="228" data-field-top-res-960-value="660"
                  data-field-left-res-960-value="38" data-field-width-res-960-value="246">
-                <div class="tn-atom" field="tn_text_1678737045322">Короткие интенсивы и&nbsp;уроки по&nbsp;10&nbsp;минут,
+                <div class="tn-atom" field="tn_text_1678737045322">{% if page4_cars == None %}
+                    Короткие интенсивы и&nbsp;уроки по&nbsp;10&nbsp;минут,
                     курсы, йога терапия или&nbsp;челленджи по&nbsp;1–4&nbsp;минуты в&nbsp;день, помогут снять напряжение
-                    с&nbsp;любого участка тела
+                    с&nbsp;любого участка тела{% else %}{% if page4_cars.desc4 %}{{ page4_cars.desc4 }}
+                    {% else %}Короткие интенсивы и&nbsp;уроки по&nbsp;10&nbsp;минут,
+                    курсы, йога терапия или&nbsp;челленджи по&nbsp;1–4&nbsp;минуты в&nbsp;день, помогут снять напряжение
+                    с&nbsp;любого участка тела{% endif %}{% endif %}
                 </div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045269" data-elem-id="1678737045269"
@@ -1861,7 +1886,9 @@
                  data-field-left-res-640-value="105" data-field-width-res-640-value="197"
                  data-field-top-res-960-value="578"
                  data-field-left-res-960-value="417" data-field-width-res-960-value="212">
-                <div class="tn-atom" field="tn_text_1678737045339">Прямые эфиры, общение, участники</div>
+                <div class="tn-atom" field="tn_text_1678737045339">{% if page4_cars == None %}
+                    Прямые эфиры, общение, участники{% else %}{% if page4_cars.title5 %}{{ page4_cars.title5 }}
+                    {% else %}Прямые эфиры, общение, участники{% endif %}{% endif %}</div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045324 t-animate" data-elem-id="1678737045324"
                  data-elem-type="text" data-field-top-value="643" data-field-left-value="460"
@@ -1875,8 +1902,12 @@
                  data-field-top-res-640-value="893" data-field-left-res-640-value="59"
                  data-field-width-res-640-value="234" data-field-top-res-960-value="660"
                  data-field-left-res-960-value="358" data-field-width-res-960-value="252">
-                <div class="tn-atom" field="tn_text_1678737045324">Мы&nbsp;делимся только тем, что&nbsp;проживаем на&nbsp;собственном
+                <div class="tn-atom" field="tn_text_1678737045324">{% if page4_cars == None %}
+                    Мы&nbsp;делимся только тем, что&nbsp;проживаем на&nbsp;собственном
                     опыте и&nbsp;любим поделиться этим с&nbsp;ребятами на&nbsp;чайных эфирах
+                    {% else %}{% if page4_cars.desc5 %}{{ page4_cars.desc5 }}
+                    {% else %}Мы&nbsp;делимся только тем, что&nbsp;проживаем на&nbsp;собственном
+                    опыте и&nbsp;любим поделиться этим с&nbsp;ребятами на&nbsp;чайных эфирах{% endif %}{% endif %}
                 </div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678741598346" data-elem-id="1678741598346"
@@ -1921,7 +1952,9 @@
                  data-field-left-res-640-value="411" data-field-width-res-640-value="178"
                  data-field-top-res-960-value="601"
                  data-field-left-res-960-value="739" data-field-width-res-960-value="192">
-                <div class="tn-atom" field="tn_text_1678737045341">Поддержка</div>
+                <div class="tn-atom" field="tn_text_1678737045341">{% if page4_cars == None %}
+                    Поддержка{% else %}{% if page4_cars.title6 %}{{ page4_cars.title6 }}
+                    {% else %}Поддержка{% endif %}{% endif %}</div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045326 t-animate" data-elem-id="1678737045326"
                  data-elem-type="text" data-field-top-value="628" data-field-left-value="815"
@@ -1936,9 +1969,14 @@
                  data-field-left-res-640-value="353" data-field-width-res-640-value="243"
                  data-field-top-res-960-value="650" data-field-left-res-960-value="677"
                  data-field-width-res-960-value="252">
-                <div class="tn-atom" field="tn_text_1678737045326">Самая большая ценность клуба&nbsp;— это&nbsp;сообщество
+                <div class="tn-atom" field="tn_text_1678737045326">{% if page4_cars == None %}
+                    Самая большая ценность клуба&nbsp;— это&nbsp;сообщество
                     единомышленников. У&nbsp;нас&nbsp;два чата, где&nbsp;мы&nbsp;отвечаем на&nbsp;вопросы ребят по&nbsp;практикам
                     и&nbsp;второй для&nbsp;общения
+                    {% else %}{% if page4_cars.desc6 %}{{ page4_cars.desc6 }}
+                    {% else %}Самая большая ценность клуба&nbsp;— это&nbsp;сообщество
+                    единомышленников. У&nbsp;нас&nbsp;два чата, где&nbsp;мы&nbsp;отвечаем на&nbsp;вопросы ребят по&nbsp;практикам
+                    и&nbsp;второй для&nbsp;общения{% endif %}{% endif %}
                 </div>
             </div>
             <div class="t396__elem tn-elem tn-elem__5626709341678737045275" data-elem-id="1678737045275"

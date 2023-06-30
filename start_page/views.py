@@ -5,9 +5,11 @@ from django.http import HttpResponse
 from django.views.decorators.http import require_GET
 
 from .func.page3_advantages import page3_advantages
-from .models import Settings, ButtonsHead, Page2Title, Page2Slider, Advantages
+from .models import Settings, ButtonsHead, Page2Title, Page2Slider, Advantages, Page4Title, Page4Cards, Page5Title
 
 from start_page.func.page2_slider import insert_id_animated
+from start_page.func.page4_cards import page4_cards
+from start_page.func.page5_green import page5_green
 
 # Create your views here.
 
@@ -25,7 +27,9 @@ def robots_txt(request):
 
 def index(request):
     buttons = ButtonsHead.objects.first()
+
     settings = Settings.objects.first()
+
     page2 = Page2Title.objects.first()
 
     page2slider = Page2Slider.objects.all()
@@ -34,8 +38,17 @@ def index(request):
     advantage_list = Advantages.objects.all()
     advantage_list = page3_advantages(advantage_list)
 
+    page4 = Page4Title.objects.first()
+
+    page4_cars = Page4Cards.objects.all()
+    page4_cars = page4_cards(page4_cars)
+
+    page5 = Page5Title.objects.first()
+    page5 = page5_green(page5)
+
     context = {'settings': settings, 'buttons': buttons, 'page2': page2, 'slider': page2slider,
-               'advantages': advantage_list}
+               'advantages': advantage_list, 'page4': page4, "page4_cars": page4_cars,
+               'page5': page5}
 
     response = render(request, 'start_page/index.html', context=context)
 
