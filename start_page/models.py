@@ -4,6 +4,137 @@ from django.db import models
 from django.contrib import messages
 
 
+class AbonimentsCards(models.Model):
+    title1 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Главный заголовок')
+    title2 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Второй заголовок')
+    birka = models.CharField(null=False, blank=False, max_length=120, verbose_name='Бирка')
+    desc = models.TextField(null=False, blank=False, verbose_name='Описание')
+    bonus = models.TextField(null=False, blank=False, verbose_name='Бонус')
+    price = models.CharField(null=False, blank=False, max_length=120, verbose_name='Цена')
+    old_price = models.CharField(null=False, blank=False, max_length=120, verbose_name='Старая цена')
+    button = models.CharField(null=False, blank=False, max_length=120, verbose_name='Надпись кнопки')
+
+    class Meta:
+        verbose_name = 'абонемент'
+        verbose_name_plural = 'Абонементы. Редактировать'
+
+    def save(self, *args, **kwargs):
+        count = AbonimentsCards.objects.count()
+        if count >= 3:
+            if not self.pk and AbonimentsCards.objects.exists():
+                return False
+            else:
+                AbonimentsCards.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2,
+                                                                  birka=self.birka, desc=self.desc,
+                                                                  bonus=self.bonus, price=self.price,
+                                                                  button=self.button, old_price=self.old_price)
+        else:
+            return super(AbonimentsCards, self).save(*args, **kwargs)
+
+
+class AbonimentsTitle(models.Model):
+    title1 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Главный заголовок')
+    title2 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Второй заголовок')
+
+    class Meta:
+        verbose_name = 'заголовок'
+        verbose_name_plural = 'Абонементы. Заголовки'
+
+    def save(self, *args, **kwargs):
+        count = AbonimentsTitle.objects.count()
+        if count >= 1:
+            if not self.pk and AbonimentsTitle.objects.exists():
+                return False
+            else:
+                AbonimentsTitle.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2)
+        else:
+            return super(AbonimentsTitle, self).save(*args, **kwargs)
+
+
+class Teachers(models.Model):
+    name = models.CharField(max_length=130, null=False, blank=False, verbose_name='Имя преподавателя')
+    desc = models.TextField(null=False, blank=False, verbose_name='Имя преподавателя')
+    image = models.ImageField(null=False, blank=False, upload_to='teachers', verbose_name='Изображение')
+
+    class Meta:
+        verbose_name = 'преподавателя'
+        verbose_name_plural = 'Преподаватели'
+
+    def save(self, *args, **kwargs):
+        count = Teachers.objects.count()
+        if count >= 3:
+            if not self.pk and Teachers.objects.exists():
+                return False
+            else:
+                Teachers.objects.filter(pk=self.pk).update(name=self.name, desc=self.desc,
+                                                           image=self.image)
+        else:
+            return super(Teachers, self).save(*args, **kwargs)
+
+
+class Page6Session(models.Model):
+    title1 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Дни недели')
+    title2 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Время')
+    title3 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Заголовок')
+    title4 = models.TextField(null=True, blank=True, verbose_name='Описание')
+    image = models.ImageField(null=False, blank=False, upload_to='sessions', verbose_name='Изображение')
+
+    class Meta:
+        verbose_name = 'расписание'
+        verbose_name_plural = 'Расписание. Редактировать'
+
+    def save(self, *args, **kwargs):
+        count = Page6Session.objects.count()
+        if count >= 3:
+            if not self.pk and Page6Session.objects.exists():
+                return False
+            else:
+                Page6Session.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2,
+                                                               title3=self.title3, title4=self.title4,
+                                                               image=self.image)
+        else:
+            return super(Page6Session, self).save(*args, **kwargs)
+
+
+class Page6Title(models.Model):
+    title1 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Главный заголовок')
+    title2 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Второй заголовок')
+
+    class Meta:
+        verbose_name = 'заголовок'
+        verbose_name_plural = 'Раписание. Заголовки'
+
+    def save(self, *args, **kwargs):
+        count = Page6Title.objects.count()
+        if count >= 1:
+            if not self.pk and Page6Title.objects.exists():
+                return False
+            else:
+                Page6Title.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2)
+        else:
+            return super(Page6Title, self).save(*args, **kwargs)
+
+
+class Page5Cards(models.Model):
+    title1 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Главный заголовок')
+    title2 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Нижний заголовок')
+    desc = models.TextField(null=True, blank=True, verbose_name='Описание')
+
+    class Meta:
+        verbose_name = '5 экран карта'
+        verbose_name_plural = '5 экран карта'
+
+    def save(self, *args, **kwargs):
+        count = Page5Cards.objects.count()
+        if count >= 4:
+            if not self.pk and Page5Cards.objects.exists():
+                return False
+            else:
+                Page5Cards.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2, desc=self.desc)
+        else:
+            return super(Page5Cards, self).save(*args, **kwargs)
+
+
 class Page5Title(models.Model):
     title1 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Главный заголовок')
     desc = models.TextField(null=True, blank=True, verbose_name='Описание')

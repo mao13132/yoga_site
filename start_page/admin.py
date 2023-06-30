@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from django.contrib import messages
 
-from .models import Settings, ButtonsHead, Page2Title, Page2Slider, Advantages, Page4Title, Page4Cards, Page5Title
+from .models import *
 
 from django.contrib.admin import AdminSite
 from django.contrib.auth.models import Group, User
@@ -26,8 +26,6 @@ class MyAdminSite(AdminSite):
         #    app['models'].sort(key=lambda x: x['name'])
 
         return app_list
-
-
 
 
 # Register your models here.
@@ -66,14 +64,37 @@ class Page2SliderAdmin(admin.ModelAdmin):
 class AdvantagesAdmin(admin.ModelAdmin):
     list_display = ('title',)
 
+
 class Page4TitleAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2')
+
 
 class Page4CardsAdmin(admin.ModelAdmin):
     list_display = ('title',)
 
+
 class Page5TitleAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2', 'desc')
+
+
+class Page5CardsAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2', 'desc')
+
+class Page6TitleAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2')
+
+class Page6SessionAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2', 'title3', 'title4')
+    list_display_links = ('title1', 'title2', 'title3', 'title4')
+
+class TeachersAdmin(admin.ModelAdmin):
+    list_display = ('name', 'desc')
+
+class AbonimentsTitleAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2')
+
+class AbonimentsCardsAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2', 'price')
 
 
 admin.site = MyAdminSite()
@@ -88,3 +109,9 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Page4Title, Page4TitleAdmin)
 admin.site.register(Page4Cards, Page4CardsAdmin)
 admin.site.register(Page5Title, Page5TitleAdmin)
+admin.site.register(Page5Cards, Page5CardsAdmin)
+admin.site.register(Page6Title, Page6TitleAdmin)
+admin.site.register(Page6Session, Page6SessionAdmin)
+admin.site.register(Teachers, TeachersAdmin)
+admin.site.register(AbonimentsTitle, AbonimentsTitleAdmin)
+admin.site.register(AbonimentsCards, AbonimentsCardsAdmin)
