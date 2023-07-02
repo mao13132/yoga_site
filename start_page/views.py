@@ -22,6 +22,8 @@ from start_page.func.quests_page import quest_func
 from start_page.func.contacts_func import contacts_func
 from start_page.func.lead_form_func import lead_form_func
 
+from orders.models import Orders
+
 
 # Create your views here.
 

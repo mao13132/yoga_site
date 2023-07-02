@@ -130,11 +130,7 @@ class FreeFormTitleAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2')
 
 
-class OrdersAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone', 'telegram', 'price', 'comments', 'source', 'ip', 'date')
-    fields = ('name', 'phone', 'telegram', 'comments', 'source', 'price')
-    list_filter = ('date',)
-    list_display_links = ('name', 'phone', 'telegram', 'price', 'comments', 'source', 'ip', 'date')
+
 
 
 admin.site = MyAdminSite()
@@ -162,4 +158,3 @@ admin.site.register(Quests, QuestsAdmin)
 admin.site.register(Contacts, ContactsAdmin)
 admin.site.register(LeadFormTitle, LeadFormTitleAdmin)
 admin.site.register(FreeFormTitle, FreeFormTitleAdmin)
-admin.site.register(Orders, OrdersAdmin)

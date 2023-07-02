@@ -1,0 +1,104 @@
+{% load static %}
+
+
+<div id="rec5692129281" class="r t-rec" style=" " data-animationappear="off" data-record-type="868">
+    <!-- t868 -->
+    <div class="t868">
+        <div class="t-popup" data-tooltip-hook="#popup:embed1001" role="dialog" aria-modal="true" tabindex="-1">
+            <div class="t-popup__container t-width t-width_10">
+                <div class="t868__code-wrap">
+
+
+
+                    <div class="modal-header t-popup__close t-popup__block-close">
+                        <button type="button" class="close d-flex align-items-center justify-content-center t-popup__block-close-button t-popup__close-wrapper" data-dismiss="modal" aria-label="Close">
+
+                        </button>
+		            </div>
+
+		      <div class="modal-body p-4 py-5 p-md-5">
+		      	<h3 class="text-center mb-3">{% if form_title == None %}
+                                        Оформить подписку на месяц тариф "Новичок" на июль
+                                        {% else %}{% if form_title.title1_4 %}{{ form_title.title1_4 }}
+                                        {% else %}
+                                        Оформить подписку на месяц тариф "Новичок" на июль
+                                        {% endif %}
+                                        {% endif %}</h3>
+
+		      	<form method="post" action="{% url 'thanks' %}" class="signup-form">
+                    {% csrf_token %}
+		      		<div class="form-group mb-2">
+		      			<label for="name">Ваше имя</label>
+		      			{{ form.name }}
+		      		</div>
+		      		<div class="form-group mb-2">
+		      			<label for="phone">Ваш телефон</label>
+		      			{{ form.phone }}
+		      		</div>
+	            <div class="form-group mb-2">
+	            	<label for="telegram">Telegram</label>
+	                {{ form.telegram }}
+	            </div>
+                    <input type="hidden" name="source" value="Сайт"/>
+                    <input type="hidden" name="price" value="{% if aboniment_list != None %}{% if aboniment_list.price_4 %}{{ aboniment_list.price_4 }}{% endif %}{% endif %}"/>
+
+					<h4 class="text-left mb-3">{% if form_title == None %}
+						Онлайн клуб йоги и медитации - подписка на июль
+                                        {% else %}{% if form_title.title2_4 %}{{ form_title.title2_4 }}
+
+										{% if aboniment_list != None %}
+										{% if aboniment_list.price_4 %}<span style="float:right">
+                                        <s>{{ aboniment_list.old_price_4 }}₽</s> {{ aboniment_list.price_4 }}₽</span>
+                                        {% endif %}
+                                        {% endif %}
+
+
+
+
+                                        {% else %}
+                                        Онлайн клуб йоги и медитации - подписка на июль
+                                        {% endif %}
+                                        {% endif %}</h4>
+                    <br>
+
+                    <h6 class="text-left mb-3">{% if form_title == None %}
+						                Лучший продукт на рынке
+                                        {% else %}{% if form_title.desc_4 %}{{ form_title.desc_4 }}
+
+                                        {% else %}
+
+						                Лучший продукт на рынке
+                                        {% endif %}
+                                        {% endif %}</h6>
+
+
+
+
+
+
+	            <div class="form-group mb-2">
+	            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">
+                        {% if form_title == None %}ОФОРМИТЬ{% else %}
+                        {% if form_title.button_4 %}{{ form_title.button_4 }}{% else %}ОФОРМИТЬ
+                        {% endif %}{% endif %}</button>
+	            </div>
+	          </form>
+		      </div>
+		    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+            t_onReady(function() {
+                setTimeout(function() {
+                    t_onFuncLoad('t868_initPopup', function() {
+                        t868_initPopup('5692129281');
+                    });
+                }, 500);
+            });
+
+    </script>
+</div>

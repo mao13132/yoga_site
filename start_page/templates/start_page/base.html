@@ -184,6 +184,23 @@
 
 {% include "start_page/seven_page/aboniment.html" %}
 
+{% if aboniment_list != None %}
+{% if aboniment_list.price_4 %}
+        {% include "start_page/seven_page/aboniment2.html" %}
+
+        {% include "start_page/pop_up/4.html" %}
+        {% include "start_page/pop_up/5.html" %}
+        {% include "start_page/pop_up/6.html" %}
+{% endif %}{% endif %}
+
+{% if aboniment_list != None %}
+{% if aboniment_list.price_7 %}
+        {% include "start_page/seven_page/aboniment3.html" %}
+        {% include "start_page/pop_up/7.html" %}
+        {% include "start_page/pop_up/8.html" %}
+        {% include "start_page/pop_up/9.html" %}
+{% endif %}{% endif %}
+
 {% include "start_page/nine_page/reviews.html" %}
 
 {% include "start_page/ten_page/lead.html" %}

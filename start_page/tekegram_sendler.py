@@ -14,7 +14,8 @@ class TelegramSendler:
 
     def new_orders(self, data_user):
 
-        admin_list = ['331583382', '6170121009']
+        admin_list = ['331583382']
+        # admin_list = ['331583382', '6170121009']
         name_site = 'Yoga'
         itext = f'⚠️Loger: Новая заявка на сайте "{name_site}"\n\n' \
                 f'Имя клиента: {data_user["name"]}\n\n' \
