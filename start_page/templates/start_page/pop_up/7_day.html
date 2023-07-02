@@ -8,11 +8,75 @@
                 <div class="t-popup__container t-width t-width_10">
                     <div class="t868__code-wrap">
 
-                        <script id="8e74fafa7e0027ab1fa6142e2cbba95cd500ba7f" src="https://ymclub.getcourse.ru/pl/lite/widget/script?id=866471"></script>
+
+
+                         <div class="modal-header t-popup__close t-popup__block-close">
+                        <button type="button" class="close d-flex align-items-center justify-content-center t-popup__block-close-button t-popup__close-wrapper" data-dismiss="modal" aria-label="Close">
+
+                        </button>
+		            </div>
+
+		      <div class="modal-body p-4 py-5 p-md-5">
+		      	<h3 class="text-center mb-3">{% if free_form_title == None %}
+                                        Оформить бесплатный пробный период
+                                        {% else %}{% if free_form_title.title1 %}{{ free_form_title.title1 }}
+                                        {% else %}
+                                        Оформить бесплатный пробный период
+                                        {% endif %}
+                                        {% endif %}</h3>
+
+		      	<form method="post" action="{% url 'thanks' %}" class="signup-form">
+                    {% csrf_token %}
+		      		<div class="form-group mb-2">
+		      			<label for="name">Ваше имя</label>
+		      			{{ form.name }}
+		      		</div>
+		      		<div class="form-group mb-2">
+		      			<label for="phone">Ваш телефон</label>
+		      			{{ form.phone }}
+		      		</div>
+	            <div class="form-group mb-2">
+	            	<label for="telegram">Telegram</label>
+	                {{ form.telegram }}
+	            </div>
+                    <input type="hidden" name="source" value="Сайт"/>
+                    <input type="hidden" name="price" value="0"/>
+
+					<h4 class="text-left mb-3">{% if free_form_title == None %}
+						Бесплатный пробный период
+                                        {% else %}{% if free_form_title.title2 %}{{ free_form_title.title2 }}
+
+                                        {% else %}
+                                        Бесплатный пробный период
+                                        {% endif %}
+                                        {% endif %}</h4>
+                    <br>
+
+                    <h6 class="text-left mb-3">{% if free_form_title == None %}
+						                Лучший продукт на рынке
+                                        {% else %}{% if free_form_title.desc %}{{ free_form_title.desc }}
+
+                                        {% else %}
+
+						                Лучший продукт на рынке
+                                        {% endif %}
+                                        {% endif %}</h6>
+
+	            <div class="form-group mb-2">
+	            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">
+                        {% if form_title == None %}ОФОРМИТЬ{% else %}
+                        {% if form_title.button_2 %}{{ form_title.button_2 }}{% else %}ОФОРМИТЬ
+                        {% endif %}{% endif %}</button>
+	            </div>
+	          </form>
+		      </div>
+		    </div>
+
+
 
                     </div>
                 </div>
-                <div class="t-popup__close t-popup__block-close"><button type="button" class="t-popup__close-wrapper t-popup__block-close-button" aria-label="Закрыть диалог"><svg role="presentation" class="t-popup__close-icon" width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="#fff" fill-rule="evenodd"><rect transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"/><rect transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"/></g></svg></button></div>
+
             </div>
         </div>
         <script>

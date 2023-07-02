@@ -1,8 +1,70 @@
+from datetime import datetime
+
 from django.core.exceptions import ValidationError
 from django.db import models
 
 from django.contrib import messages
 
+
+class FreeFormTitle(models.Model):
+    title1 = models.CharField(max_length=150, null=False, blank=False, verbose_name='Верхний заголовок')
+    title2 = models.CharField(max_length=150, null=False, blank=False, verbose_name='Нижний заголов')
+    desc = models.TextField(null=False, blank=False, verbose_name='Описание предложения')
+    button = models.CharField(null=False, blank=False, max_length=120, verbose_name='Надпись кнопки')
+
+    class Meta:
+        verbose_name = 'бесплатную форму'
+        verbose_name_plural = 'Бесплатная форма'
+
+    def save(self, *args, **kwargs):
+        count = FreeFormTitle.objects.count()
+        if count >= 1:
+            if not self.pk and FreeFormTitle.objects.exists():
+                return False
+            else:
+                FreeFormTitle.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2,
+                                                                desc=self.desc, button=self.button)
+        else:
+            return super(FreeFormTitle, self).save(*args, **kwargs)
+
+
+class Orders(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True, verbose_name=f'Имя клиента')
+    phone = models.CharField(max_length=30, null=False,  blank=False, verbose_name=f'Телефон')
+    telegram = models.CharField(max_length=30, null=True, blank=True, verbose_name=f'Телеграм клиента')
+    price = models.CharField(max_length=30, null=False,  blank=False, verbose_name=f'Стоимость')
+    ip = models.CharField(max_length=30, null=True,  blank=True, verbose_name=f'IP')
+    comments = models.TextField(null=True, blank=True, verbose_name=f'Комментарий')
+    source = models.TextField(null=True, blank=True, verbose_name=f'Источник')
+    date = models.DateTimeField(default=datetime.now, blank=True, verbose_name='Время заказа')
+
+    class Meta:
+        verbose_name = f'Заявка'
+        verbose_name_plural = f'Заявки'
+
+    def __str__(self):
+        return f'{self.name} {self.telegram} {self.date}'
+
+class LeadFormTitle(models.Model):
+    title1 = models.CharField(max_length=150, null=False, blank=False, verbose_name='Верхний заголовок')
+    title2 = models.CharField(max_length=150, null=False, blank=False, verbose_name='Нижний заголов')
+    desc = models.TextField(null=False, blank=False, verbose_name='Описание предложения')
+    button = models.CharField(null=False, blank=False, max_length=120, verbose_name='Надпись кнопки')
+
+    class Meta:
+        verbose_name = 'форму заявки'
+        verbose_name_plural = 'Формы заявок. Тарифы'
+
+    def save(self, *args, **kwargs):
+        count = LeadFormTitle.objects.count()
+        if count >= 3:
+            if not self.pk and LeadFormTitle.objects.exists():
+                return False
+            else:
+                LeadFormTitle.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2,
+                                                                desc=self.desc, button=self.button)
+        else:
+            return super(LeadFormTitle, self).save(*args, **kwargs)
 
 class Contacts(models.Model):
     title1 = models.TextField(null=True, blank=True, verbose_name='Контакты')
@@ -21,6 +83,7 @@ class Contacts(models.Model):
                 Contacts.objects.filter(pk=self.pk).update(title1=self.title1, telegram=self.telegram)
         else:
             return super(Contacts, self).save(*args, **kwargs)
+
 
 class Quests(models.Model):
     quest = models.CharField(null=False, blank=False, max_length=120, verbose_name='Вопрос')
@@ -59,6 +122,7 @@ class QuestsTitle(models.Model):
         else:
             return super(QuestsTitle, self).save(*args, **kwargs)
 
+
 class LeadPage(models.Model):
     title1 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Главный заголовок')
     title2 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Второй заголовок')
@@ -79,7 +143,6 @@ class LeadPage(models.Model):
                                                            button=self.button, image=self.image)
         else:
             return super(LeadPage, self).save(*args, **kwargs)
-
 
 
 class Reviews(models.Model):
@@ -106,8 +169,10 @@ class AbonimentsCards(models.Model):
     birka = models.CharField(null=False, blank=False, max_length=120, verbose_name='Бирка')
     desc = models.TextField(null=False, blank=False, verbose_name='Описание')
     bonus = models.TextField(null=False, blank=False, verbose_name='Бонус')
-    price = models.CharField(null=False, blank=False, max_length=120, verbose_name='Цена')
-    old_price = models.CharField(null=False, blank=False, max_length=120, verbose_name='Старая цена')
+    price = models.IntegerField(null=False, blank=False)
+    old_price = models.IntegerField(null=False, blank=False)
+    # price = models.CharField(null=False, blank=False, max_length=120, verbose_name='Цена')
+    # old_price = models.CharField(null=False, blank=False, max_length=120, verbose_name='Старая цена')
     button = models.CharField(null=False, blank=False, max_length=120, verbose_name='Надпись кнопки')
 
     class Meta:
@@ -123,7 +188,8 @@ class AbonimentsCards(models.Model):
                 AbonimentsCards.objects.filter(pk=self.pk).update(title1=self.title1, title2=self.title2,
                                                                   birka=self.birka, desc=self.desc,
                                                                   bonus=self.bonus, price=self.price,
-                                                                  button=self.button, old_price=self.old_price)
+                                                                  button=self.button, old_price=self.old_price,
+                                                                  dlina=self.dlina)
         else:
             return super(AbonimentsCards, self).save(*args, **kwargs)
 
@@ -158,7 +224,7 @@ class Teachers(models.Model):
 
     def save(self, *args, **kwargs):
         count = Teachers.objects.count()
-        if count >= 3:
+        if count >= 6:
             if not self.pk and Teachers.objects.exists():
                 return False
             else:

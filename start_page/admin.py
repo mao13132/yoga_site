@@ -11,7 +11,7 @@ from django.contrib.auth.admin import GroupAdmin, UserAdmin
 
 class MyAdminSite(AdminSite):
 
-    def get_app_list(self, request):
+    def get_app_list(self, request, app_label=None):
         """
         Return a sorted list of all the installed apps that have been
         registered in this site.
@@ -117,8 +117,24 @@ class QuestsTitleAdmin(admin.ModelAdmin):
 class QuestsAdmin(admin.ModelAdmin):
     list_display = ('quest',)
 
+
 class ContactsAdmin(admin.ModelAdmin):
     list_display = ('title1', 'telegram')
+
+
+class LeadFormTitleAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2')
+
+
+class FreeFormTitleAdmin(admin.ModelAdmin):
+    list_display = ('title1', 'title2')
+
+
+class OrdersAdmin(admin.ModelAdmin):
+    list_display = ('name', 'phone', 'telegram', 'price', 'comments', 'source', 'ip', 'date')
+    fields = ('name', 'phone', 'telegram', 'comments', 'source', 'price')
+    list_filter = ('date',)
+    list_display_links = ('name', 'phone', 'telegram', 'price', 'comments', 'source', 'ip', 'date')
 
 
 admin.site = MyAdminSite()
@@ -144,3 +160,6 @@ admin.site.register(LeadPage, LeadPageAdmin)
 admin.site.register(QuestsTitle, QuestsTitleAdmin)
 admin.site.register(Quests, QuestsAdmin)
 admin.site.register(Contacts, ContactsAdmin)
+admin.site.register(LeadFormTitle, LeadFormTitleAdmin)
+admin.site.register(FreeFormTitle, FreeFormTitleAdmin)
+admin.site.register(Orders, OrdersAdmin)

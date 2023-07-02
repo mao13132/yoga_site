@@ -41,6 +41,7 @@
     <link rel="apple-touch-startup-image" href="{% static 'images/photo.png' %}">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="{% static 'images/photo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/base-grid-3.0.min.css' %}" type="text/css" media="all" onerror="this.loaderr='y';">
     <link rel="stylesheet" href="{% static 'css/base-blocks-page34801943.min.css' %}" type="text/css" media="all" onerror="this.loaderr='y';">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -158,6 +159,8 @@
     <!--allrecords-->
     <div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="4720881" data-tilda-page-id="34801943" data-tilda-page-alias="newpage" data-tilda-formskey="b2a79df3df8acfb21bb4cc1515587ae5" data-tilda-lazy="yes">
 
+
+
 {% include "start_page/mob_menu/mob_menu.html" %}
 
 {% include "start_page/one_page/one.html" %}
@@ -174,6 +177,10 @@
 {% include "start_page/six/schedule.html" %}
 
 {% include "start_page/eight_page/teacher.html" %}
+
+{% if teachers.name_4 %}
+{% include "start_page/eight_page/teacher2.html" %}
+{% endif %}
 
 {% include "start_page/seven_page/aboniment.html" %}
 

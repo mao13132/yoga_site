@@ -20,13 +20,14 @@ from django.urls import path
 from django.conf.urls.static import static  # Для медиа файлов
 from django.conf import settings    # Для медиа файлов
 
-from start_page.views import robots_txt, index
+from start_page.views import robots_txt, index, thanks
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("robots.txt", robots_txt),
     path("", index),
+    path('thanks/', thanks, name='thanks'),
 ]
 
 if settings.DEBUG:
