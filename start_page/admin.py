@@ -103,7 +103,7 @@ class ReviewsAdmin(admin.ModelAdmin):
 
 
 class AbonimentsCardsAdmin(admin.ModelAdmin):
-    list_display = ('title1', 'title2', 'price')
+    list_display = ('title1', 'title2', 'price', 'id_chat')
 
 
 class LeadPageAdmin(admin.ModelAdmin):
@@ -128,9 +128,6 @@ class LeadFormTitleAdmin(admin.ModelAdmin):
 
 class FreeFormTitleAdmin(admin.ModelAdmin):
     list_display = ('title1', 'title2')
-
-
-
 
 
 admin.site = MyAdminSite()

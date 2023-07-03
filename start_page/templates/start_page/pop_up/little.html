@@ -40,6 +40,8 @@
 	                {{ form.telegram }}
 	            </div>
                     <input type="hidden" name="source" value="Сайт"/>
+                    <input type="hidden" name="offer" value="{% if aboniment_list.title1_1 %}{{ aboniment_list.title1_1 }}{% endif %}"/>
+                    <input type="hidden" name="buy_chat" value="{% if aboniment_list.buy_chat_1 %}{{ aboniment_list.buy_chat_1 }}{% endif %}"/>
                     <input type="hidden" name="price" value="{% if aboniment_list != None %}{% if aboniment_list.price_1 %}{{ aboniment_list.price_1 }}{% endif %}{% endif %}"/>
 
 					<h4 class="text-left mb-3">{% if form_title == None %}

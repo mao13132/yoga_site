@@ -1,11 +1,12 @@
 from django.utils.safestring import mark_safe
-
+import operator
 
 def page8_cars_func(aboniment_list):
     good_list = {}
 
     if aboniment_list is None:
         return aboniment_list
+
 
     for count in range(9):
         try:
@@ -47,5 +48,10 @@ def page8_cars_func(aboniment_list):
             good_list[f'old_price_{count + 1}'] = aboniment_list[count].old_price
         except:
             good_list[f'old_price_{count + 1}'] = False
+
+        try:
+            good_list[f'buy_chat_{count + 1}'] = aboniment_list[count].id_chat
+        except:
+            good_list[f'buy_chat_{count + 1}'] = False
 
     return good_list

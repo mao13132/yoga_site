@@ -44,26 +44,26 @@ def index(request):
 
     page2 = Page2Title.objects.first()
 
-    page2slider = Page2Slider.objects.all()
+    page2slider = Page2Slider.objects.all().order_by('id')
     page2slider = insert_id_animated(page2slider)
 
-    advantage_list = Advantages.objects.all()
+    advantage_list = Advantages.objects.all().order_by('id')
     advantage_list = page3_advantages(advantage_list)
 
     page4 = Page4Title.objects.first()
 
-    page4_cars = Page4Cards.objects.all()
+    page4_cars = Page4Cards.objects.all().order_by('id')
     page4_cars = page4_cards(page4_cars)
 
     page5 = Page5Title.objects.first()
     page5 = page5_green(page5)
 
-    page5_cards = Page5Cards.objects.all()
+    page5_cards = Page5Cards.objects.all().order_by('id')
     page5_cards = func_page5_cards(page5_cards)
 
     page6 = Page6Title.objects.first()
 
-    sessions = Page6Session.objects.all()
+    sessions = Page6Session.objects.all().order_by('id')
     sessions = page6_sessions_func(sessions)
 
     teachers = Teachers.objects.all()
@@ -71,10 +71,11 @@ def index(request):
 
     aboniment = AbonimentsTitle.objects.first()
 
-    aboniment_list = AbonimentsCards.objects.all()
+    aboniment_list = AbonimentsCards.objects.all().order_by('id')
+
     aboniment_list = page8_cars_func(aboniment_list)
 
-    reviews = Reviews.objects.all()
+    reviews = Reviews.objects.all().order_by('id')
     reviews = page9_reviews_func(reviews)
 
     leads = LeadPage.objects.first()
@@ -82,7 +83,7 @@ def index(request):
 
     quest = QuestsTitle.objects.first()
 
-    quests_list = Quests.objects.all()
+    quests_list = Quests.objects.all().order_by('id')
     quests_list = quest_func(quests_list)
 
     contacts = Contacts.objects.first()
@@ -118,21 +119,27 @@ def thanks(request):
             price = form.cleaned_data['price']
             source = form.cleaned_data['source']
             ip = request.META['REMOTE_ADDR']
+            offer = form.cleaned_data['offer']
+            buy_chat = form.cleaned_data['buy_chat']
 
             orders_model = Orders()
+            orders_model.offer = offer
             orders_model.name = name
             orders_model.phone = phone
             orders_model.telegram = telegram
             orders_model.price = price
             orders_model.source = source
             orders_model.ip = ip
+            orders_model.buy_chat = buy_chat
             orders_model.save()
 
             TelegramSendler().new_orders(form.cleaned_data)
+            link = TelegramSendler().test_create(buy_chat)
 
     context = {
         'name': name,
-        'phone': phone
+        'phone': phone,
+        'link': link
     }
 
     return render(request, 'start_page/thanks.html', context=context)

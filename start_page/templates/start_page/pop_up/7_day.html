@@ -40,6 +40,7 @@
 	                {{ form.telegram }}
 	            </div>
                     <input type="hidden" name="source" value="Сайт"/>
+                    <input type="hidden" name="offer" value="{% if leads.title1_1 %}{{ leads.title1_1 }}{% else %}Бесплатный оффер{% endif %}"/>
                     <input type="hidden" name="price" value="0"/>
 
 					<h4 class="text-left mb-3">{% if free_form_title == None %}

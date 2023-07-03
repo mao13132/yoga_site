@@ -115,8 +115,8 @@ class LeadPage(models.Model):
     image = models.ImageField(null=False, blank=False, upload_to='lead', verbose_name='Изображение')
 
     class Meta:
-        verbose_name = 'параметр'
-        verbose_name_plural = 'Экран заявка'
+        verbose_name = 'оффер'
+        verbose_name_plural = 'Бесплатный оффер'
 
     def save(self, *args, **kwargs):
         count = LeadPage.objects.count()
@@ -149,8 +149,11 @@ class Reviews(models.Model):
 
 
 class AbonimentsCards(models.Model):
+    """Офферы offer"""
     title1 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Главный заголовок')
     title2 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Второй заголовок')
+    dlina = models.IntegerField(null=False, blank=False, verbose_name='Дней подписки')
+    id_chat = models.CharField(null=True, blank=True, max_length=120, verbose_name='ID чата на который подписываем')
     birka = models.CharField(null=False, blank=False, max_length=120, verbose_name='Бирка')
     desc = models.TextField(null=False, blank=False, verbose_name='Описание')
     bonus = models.TextField(null=False, blank=False, verbose_name='Бонус')
