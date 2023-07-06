@@ -109,10 +109,11 @@ class QuestsTitle(models.Model):
 
 
 class LeadPage(models.Model):
-    title1 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Главный заголовок')
-    title2 = models.CharField(null=False, blank=False, max_length=120, verbose_name='Второй заголовок')
-    button = models.CharField(null=False, blank=False, max_length=120, verbose_name='Надпись кнопки')
-    image = models.ImageField(null=False, blank=False, upload_to='lead', verbose_name='Изображение')
+    title1 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Главный заголовок')
+    title2 = models.CharField(null=True, blank=True, max_length=120, verbose_name='Второй заголовок')
+    buy_chat = models.CharField(null=False, blank=False, max_length=120, verbose_name='Доступ к чату')
+    button = models.CharField(null=True, blank=True, max_length=120, verbose_name='Надпись кнопки')
+    image = models.ImageField(null=True, blank=True, upload_to='lead', verbose_name='Изображение')
 
     class Meta:
         verbose_name = 'оффер'
@@ -159,8 +160,6 @@ class AbonimentsCards(models.Model):
     bonus = models.TextField(null=False, blank=False, verbose_name='Бонус')
     price = models.IntegerField(null=False, blank=False)
     old_price = models.IntegerField(null=False, blank=False)
-    # price = models.CharField(null=False, blank=False, max_length=120, verbose_name='Цена')
-    # old_price = models.CharField(null=False, blank=False, max_length=120, verbose_name='Старая цена')
     button = models.CharField(null=False, blank=False, max_length=120, verbose_name='Надпись кнопки')
 
     class Meta:

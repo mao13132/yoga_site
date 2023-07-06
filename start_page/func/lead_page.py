@@ -43,4 +43,9 @@ def lead_page_func(lead_page):
     except:
         good_list['title1_4'] = False
 
+    try:
+        good_list['buy_chat'] = lead_page.buy_chat
+    except:
+        good_list['buy_chat'] = False
+
     return good_list

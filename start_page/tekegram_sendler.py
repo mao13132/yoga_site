@@ -17,8 +17,8 @@ class TelegramSendler:
 
     def new_orders(self, data_user):
 
+        # admin_list = ['331583382']
         admin_list = ['331583382']
-        # admin_list = ['331583382', '6170121009']
         name_site = 'Yoga'
         itext = f'⚠️Loger: Новая заявка на сайте "{name_site}"\n\n' \
                 f'Оффер: {data_user["offer"]}\n\n' \
@@ -37,11 +37,12 @@ class TelegramSendler:
 
         print(f'Выслал заказ в телеграм')
 
-    def test_create(self, chat_id):
+    def test_create(self, chat_id, over_date):
 
-        expire_date = datetime.now() + timedelta(days=2)
-        expire_date = expire_date.replace(tzinfo=timezone.utc)
+        expire_date = over_date.replace(tzinfo=timezone.utc)
         expire_date = int(expire_date.timestamp())
+
+
         data = {"chat_id": chat_id, "expire_date": expire_date,
                 'creates_join_request': True}
 

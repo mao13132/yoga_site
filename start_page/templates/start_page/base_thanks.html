@@ -160,67 +160,10 @@
     <div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="4720881" data-tilda-page-id="34801943" data-tilda-page-alias="newpage" data-tilda-formskey="b2a79df3df8acfb21bb4cc1515587ae5" data-tilda-lazy="yes">
 
 
-
-{% include "start_page/mob_menu/mob_menu.html" %}
-
-{% include "start_page/one_page/one.html" %}
-
-{% include "start_page/two_page/o_club.html" %}
-{% include "start_page/two_page/carusel.html" %}
-
-{% include "start_page/three_page/maps.html" %}
-
-{% include "start_page/four_page/club.html" %}
-
-{% include "start_page/five_page/love_job.html" %}
-
-{% include "start_page/six/schedule.html" %}
-
-{% include "start_page/eight_page/teacher.html" %}
-
-{% if teachers.name_4 %}
-{% include "start_page/eight_page/teacher2.html" %}
-{% endif %}
-
-{% include "start_page/aboniment/aboniment.html" %}
-
-{% if aboniment_list != None %}
-{% if aboniment_list.price_4 %}
-        {% include "start_page/aboniment/aboniment2.html" %}
-
-        {% include "start_page/pop_up/4.html" %}
-        {% include "start_page/pop_up/5.html" %}
-        {% include "start_page/pop_up/6.html" %}
-{% endif %}{% endif %}
-
-{% if aboniment_list != None %}
-{% if aboniment_list.price_7 %}
-        {% include "start_page/aboniment/aboniment3.html" %}
-        {% include "start_page/pop_up/7.html" %}
-        {% include "start_page/pop_up/8.html" %}
-        {% include "start_page/pop_up/9.html" %}
-{% endif %}{% endif %}
-
-{% include "start_page/nine_page/reviews.html" %}
-
-{% include "start_page/ten_page/lead.html" %}
-
-{% if quests_list != None %}
-{% include "start_page/eleven_page/questions.html" %}
-{% endif %}
-
-{% include "start_page/pop_up/7_day.html" %}
-
-{% include "start_page/footer/footer.html" %}
-
-
-{% include "start_page/pop_up/little.html" %}
-{% include "start_page/pop_up/medium.html" %}
-{% include "start_page/pop_up/hard.html" %}
-
-
-
 {% block index %}
+{% endblock %}
+
+{% block thanks %}
 {% endblock %}
 
 

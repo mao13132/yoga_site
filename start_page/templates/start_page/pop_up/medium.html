@@ -47,6 +47,7 @@
                     <input type="hidden" name="source" value="Сайт"/>
                     <input type="hidden" name="offer" value="{% if aboniment_list.title1_2 %}{{ aboniment_list.title1_2 }}{% endif %}"/>
                     <input type="hidden" name="buy_chat" value="{% if aboniment_list.buy_chat_2 %}{{ aboniment_list.buy_chat_2 }}{% endif %}"/>
+                    <input type="hidden" name="dlina" value="{% if aboniment_list.dlina2 %}{{ aboniment_list.dlina2 }}{% endif %}"/>
                     <input type="hidden" name="price" value="{% if aboniment_list != None %}{% if aboniment_list.price_2 %}{{ aboniment_list.price_2 }}{% endif %}{% endif %}"/>
 
 					<h4 class="text-left mb-3">{% if form_title == None %}

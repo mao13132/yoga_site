@@ -107,7 +107,7 @@ class AbonimentsCardsAdmin(admin.ModelAdmin):
 
 
 class LeadPageAdmin(admin.ModelAdmin):
-    list_display = ('title1', 'title2', 'button')
+    list_display = ('title1', 'title2', 'buy_chat', 'button')
 
 
 class QuestsTitleAdmin(admin.ModelAdmin):

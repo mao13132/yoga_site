@@ -1,12 +1,13 @@
+{% extends 'start_page/base_thanks.html' %}
 
 {% load static %}
 {% block thanks %}
 
-<div id="content" class="content">
+<div id="content" class="content text-center">
     <div class="homepage-personal a-pagepiling">
-        <h1>{{ name }}, благодарим Вас за заявку.<br>Скоро с Вами свяжутся.<br>Проверьте контактные данные {{ phone }}</h1>
+        <h1>{{ name }}, благодарим Вас за заявку.<br>Скоро с Вами свяжутся.<br>Проверьте контактные данные {{ phone }}
         {% if link %}<br><br>Что бы получить купленный
-        материал перейдите по ссылке <a href="{{ link }}">{{ link }}</a><br><br>{% endif %}
+        материал перейдите по ссылке </h1><a href="{{ link }}">{{ link }}</a><br><br>{% endif %}
                 <button class="btn"><a href="/">Вернуться на главную</a></button>
                                     </div>
 

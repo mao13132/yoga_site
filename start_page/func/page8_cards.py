@@ -54,4 +54,9 @@ def page8_cars_func(aboniment_list):
         except:
             good_list[f'buy_chat_{count + 1}'] = False
 
+        try:
+            good_list[f'dlina_{count + 1}'] = aboniment_list[count].dlina
+        except:
+            good_list[f'dlina_{count + 1}'] = False
+
     return good_list

@@ -15,6 +15,7 @@ class Orders(models.Model):
     comments = models.TextField(null=True, blank=True, verbose_name=f'Комментарий')
     source = models.TextField(null=True, blank=True, verbose_name=f'Источник')
     buy_chat = models.CharField(max_length=30, null=True, blank=True, verbose_name=f'Купленный чат')
+    link = models.CharField(max_length=200, null=True, blank=True, verbose_name=f'Ссылка')
     date = models.DateTimeField(default=datetime.now, blank=True, verbose_name='Время заказа')
 
     class Meta:

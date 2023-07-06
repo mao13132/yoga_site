@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from datetime import timedelta, timezone
+
+from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
 
@@ -8,6 +10,7 @@ from .forms import OneFormOrders
 from .func.page3_advantages import page3_advantages
 from .models import *
 from .tekegram_sendler import TelegramSendler
+
 
 from start_page.func.page2_slider import insert_id_animated
 from start_page.func.page4_cards import page4_cards
@@ -23,6 +26,10 @@ from start_page.func.contacts_func import contacts_func
 from start_page.func.lead_form_func import lead_form_func
 
 from orders.models import Orders
+
+from telegram.models import Links
+
+from .ukassa import Ukassa
 
 
 # Create your views here.
@@ -121,9 +128,31 @@ def thanks(request):
             ip = request.META['REMOTE_ADDR']
             offer = form.cleaned_data['offer']
             buy_chat = form.cleaned_data['buy_chat']
+            form_date = int(form.cleaned_data['dlina']) if form.cleaned_data['dlina'] else 1
+
+            ###############Дата окончания действия ссылки############
+            expire_date_orig = datetime.now() + timedelta(days=form_date)
+            link = TelegramSendler().test_create(buy_chat, expire_date_orig)
+
+            if not link:
+                print(f'Не смог сформировать ссылку в телеграм')
+
+            if price != '0':
+                payment_link = Ukassa().create_payment(price, offer, link)
+            else:
+                payment_link = ''
+
+            links_model = Links()
+            links_model.link = link
+            links_model.payment_link = payment_link
+            links_model.buy_chat = buy_chat
+            links_model.ower_license = expire_date_orig
+            links_model.source = 'Сайт'
+            links_model.save()
 
             orders_model = Orders()
             orders_model.offer = offer
+            orders_model.link = link
             orders_model.name = name
             orders_model.phone = phone
             orders_model.telegram = telegram
@@ -134,7 +163,6 @@ def thanks(request):
             orders_model.save()
 
             TelegramSendler().new_orders(form.cleaned_data)
-            link = TelegramSendler().test_create(buy_chat)
 
     context = {
         'name': name,
@@ -142,4 +170,8 @@ def thanks(request):
         'link': link
     }
 
-    return render(request, 'start_page/thanks.html', context=context)
+    if price == '0':
+        return render(request, 'start_page/thanks.html', context=context)
+
+    return redirect(payment_link)
+    # return render(request, 'start_page/thanks.html', context=context)
