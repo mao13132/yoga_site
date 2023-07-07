@@ -6,3 +6,4 @@ venv/
 __pycache__/
 start_page/settings.py
 db.sqlite3
+yoga/prod_settings.py
